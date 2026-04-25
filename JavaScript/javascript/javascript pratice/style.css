@@ -1,0 +1,21 @@
+button{
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+}
+.bag{
+    border: none;
+    height:25px;
+    width: 100px;
+    color: black;
+    background-color: rgb(41, 234, 160);
+}
+.wishlist{
+    background-color: #fff;
+    height: 25px;
+    width: 150px;
+   border: 2px solid black;
+   border-radius: 8px;
+   color: black;
+
+}

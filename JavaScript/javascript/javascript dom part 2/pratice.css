@@ -1,0 +1,11 @@
+.para{
+    height: 200px;
+    width: 400px;
+    background-color: aqua;
+    border: 2px solid black;
+    color: green;
+
+}
+.newclass{
+    background-color: red;
+}
