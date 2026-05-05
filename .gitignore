@@ -1,0 +1,7 @@
+echo "*.exe
+*.o
+*.out
+output/
+.vscode/
+mypart.md
+webdevsyllabus.pdf" > .gitignore
