@@ -83,3 +83,95 @@ loginuser()
     console.log(result);
 })
 //"User Logged In -> Profile Fetched -> Posts Fetched"
+
+
+function step1() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("step1");
+            resolve("Step 1");
+        }, 1000);
+    });
+}
+
+function step2(prev) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("step2");
+            resolve(prev + " -> Step 2");
+        }, 1000);
+    });
+}
+
+function step3(prev) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("step3");
+            resolve(prev + " -> Step 3");
+        }, 1000);
+    });
+}
+
+// Chaining
+// step1()
+// .then((result) => {
+//     console.log(result);
+//     return step2(result);
+// })
+// .then((result) => {
+//     console.log(result);
+//     return step3(result);
+// })
+// .then((result) => {
+//     console.log(result);
+// })
+// .catch((err) => {
+//     console.log(err);
+// });
+
+//problem with chaining: too many then()
+
+
+//convert chaining into async/await
+async function run(){
+    const step=await step1();
+    console.log(step);
+    const stepone=await step2(step);
+    console.log(stepone);
+    const steptwo=await step3(stepone);
+    console.log(steptwo);
+}
+
+run();
+
+//error-handling:
+//chaining erro:
+// .catch((err)=>{
+//     console.log(err);
+// })
+
+
+//async/await errror:
+async function run(){
+    try{
+        const result=await step1();
+        console.log(result);
+    }catch (error){
+        console.log(error);
+    }
+}
+
+
+
+//quest 2:
+const stud=require(".../models/studentmondel");
+async function getstudent(req,res){
+    try{
+        const student=await stud.findById(req.params.id);
+        res.json(student);
+    }catch(error){
+        res.status(500).json({
+            message: error.message
+        });
+    }
+}
